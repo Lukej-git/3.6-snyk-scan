@@ -2,7 +2,6 @@ name: Package Scan With Serverless Lambda
 run-name: ${{ github.actor }} is performing package vulnerability scans for serverless application
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
