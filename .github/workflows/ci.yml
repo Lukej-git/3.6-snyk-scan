@@ -50,23 +50,6 @@ jobs:
       - name: Run TFLint
         run: tflint -f compact
 
-  ########################################
-  # Add a job for snyk scan of your code #
-  ########################################
-
-  ########################################
-  # job name: snyk-checks
-  # Enable:
-  # - snyk code test
-  # - snyk test
-  # - snyk iac test
-  # - snyk container test <image-name>
-  # Also, enable:
-  # outputs:
-  #   status:
-  # for use in the summary
-  ########################################
-
   snyk-checks:
     runs-on: ubuntu-latest
     outputs:
@@ -98,7 +81,6 @@ jobs:
         run: snyk iac test || true
 
       - name: Snyk Container Test
-        # Replace <your-image-name> with the actual image name you want to scan
         run: snyk container test snyk-image || true
 
       - name: Set status output
